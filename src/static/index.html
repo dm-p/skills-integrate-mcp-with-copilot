@@ -8,8 +8,20 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-row">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <div class="auth-controls">
+          <button id="user-menu-btn" class="icon-btn" type="button" aria-label="User menu">👤</button>
+          <div id="auth-menu" class="auth-menu hidden">
+            <p id="auth-status-text" class="auth-status">Student Mode</p>
+            <button id="open-login-btn" type="button">Teacher Login</button>
+            <button id="logout-btn" class="hidden" type="button">Logout</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -23,6 +35,7 @@
 
       <section id="signup-container">
         <h3>Sign Up for an Activity</h3>
+        <p id="signup-helper">Teacher login is required to register or unregister students.</p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -40,6 +53,27 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <div id="login-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <div class="modal-content">
+        <h3 id="login-title">Teacher Login</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required placeholder="ms.smith" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required placeholder="Enter password" />
+          </div>
+          <div class="modal-actions">
+            <button type="submit">Login</button>
+            <button id="close-login-btn" type="button" class="secondary-btn">Cancel</button>
+          </div>
+        </form>
+        <p id="login-message" class="hidden"></p>
+      </div>
+    </div>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
